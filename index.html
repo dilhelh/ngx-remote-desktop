@@ -1,0 +1,126 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-remote-desktop</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">ngx-remote-desktop</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="ngx-remote-desktop">ngx-remote-desktop</h1>
+<p><a href="https://badge.fury.io/js/%40illgrenoble%2Fngx-remote-desktop"><img src="https://badge.fury.io/js/%40illgrenoble%2Fngx-remote-desktop.svg" alt="npm version" class="img-responsive"></a></p>
+<p>For installation and usage details go <a href="https://illgrenoble.github.io/ngx-remote-desktop/additional-documentation/installation.html">here</a></p>
+<p><code>ngx-remote-desktop</code> is an Angular component for connecting to a remote desktop using the <a href="https://guacamole.apache.org/">guacamole remote desktop gateway</a></p>
+<p>It has been built for use with Angular 5.0.0+. It has been tested in Chrome, Firefox, Edge and Safari. It makes heavy use of flex, therefore it will not work in browsers that do not support flex. </p>
+<p>There is no dependency on any presentation component library / framework (ng-bootstrap, clarity etc.). This component does not make any assertions about how the backend web socket broker to guacd is implemented.</p>
+<p>By default, there are no toolbar items, however, you can add as many toolbar items as you wish and create a handler in your component. You can also override the scss if you wish to change the styling. The <code>RemoteDesktopManager</code> exposes some useful methods for generating a screenshot or thumbnail, entering and exiting full screen mode, focusing and unfocusing the display, getting the client state, subscribing to the remote desktop clipboard and sending data to the remote desktop clipboard.</p>
+<p><img src="https://raw.githubusercontent.com/ILLGrenoble/ngx-remote-desktop/master/screenshot.png" alt="Screenshot" class="img-responsive"></p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Fluid screen resizing and scaling</li>
+<li>Full screen mode</li>
+<li>Toolbar (auto hide when in full screen mode)</li>
+<li>Take a screenshot</li>
+<li>Get a thumbnail</li>
+<li>Subscribe to the remote clipboard observable and receive remote clipboard data</li>
+<li>Send data to the remote clipboard</li>
+<li>Status bar (optional) to provide contextual information</li>
+</ul>
+<p>For a full implementation example, see the <a href="https://github.com/ILLGrenoble/ngx-remote-desktop/tree/master/demo">demo source code</a></p>
+<h2 id="installation">Installation</h2>
+<p>To use <code>ngx-remote-desktop</code> in your project, install it via npm:</p>
+<div><pre class="line-numbers"><code class="language-none">npm i &#64;illgrenoble/ngx-remote-desktop --save</code></pre></div><p>We also require two peer dependencies:</p>
+<div><pre class="line-numbers"><code class="language-none">npm i &#64;illgrenoble/guacamole-common-js --save
+npm i screenfull --save</code></pre></div><h3 id="thank-you">Thank you</h3>
+<p>Thank you to the guacamole team for a fantastic project.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <script src="./js/menu-wc.js"></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-remote-desktop</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-remote-desktop</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content additional-page">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="demo">Demo</h1>
+<p>You will need access to a websocket broker that communicates with guacd for connecting to RDP or VNC desktops. You can use this project as a test websocket broker: <a href="https://github.com/jamhall/guacamole-test-server">https://github.com/jamhall/guacamole-test-server</a></p>
+<h2 id="running-the-demo-app">Running the demo app</h2>
+<p>Clone the project and install the dependencies:</p>
+<div><pre class="line-numbers"><code class="language-none">npm instsll</code></pre></div><p>Modify <code>app.component.ts</code> inside <code>demo/app</code></p>
+<p>Change the parameters for the connection and the URL for the websocket server:</p>
+<div><pre class="line-numbers"><code class="language-none">const tunnel = new WebSocketTunnel(&#39;ws://127.0.0.1:8080/ws&#39;);
+// URL parameters (image, audio and other query parameters you want to send to the tunnel.)
+const parameters = {
+    ip: &#39;192.168.99.100&#39; // remote desktop ip address
+    port: 3389 // rdp or vnc port
+    type: &#39;rdp&#39; // rdp or vnc
+    image: &#39;image/png&#39;,
+    width: window.screen.width,
+    height: window.screen.height,
+    audio: &#39;audio/L16&#39;,
+    dpi: 96
+};</code></pre></div><p>Run the demo:</p>
+<div><pre class="line-numbers"><code class="language-none">npm start</code></pre></div><p>Go to <a href="http://localhost:9999">http://localhost:9999</a> in your browser.</p>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
+            var COMPODOC_CURRENT_PAGE_URL = 'running-the-demo.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

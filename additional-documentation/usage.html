@@ -1,0 +1,222 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-remote-desktop</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-remote-desktop</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content additional-page">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="usage">Usage</h1>
+<p>This example will give a basic remote desktop client with with four toolbar items and their associated handlers: take a screenshot, help, enter full screen and exit full screen. The example also shows you how you can override the connecting messages.</p>
+<p>In your <code>app.component.ts</code>, you define a new remote desktop client like this:</p>
+<div><pre class="line-numbers"><code class="language-typescript">import { Component, OnInit } from &#39;&#64;angular/core&#39;;
+
+import { RemoteDesktopManager } from &#39;&#64;illgrenoble/ngx-remote-desktop&#39;;
+import { WebSocketTunnel } from &#39;&#64;illgrenoble/guacamole-common-js&#39;;
+
+&#64;Component({
+    selector: &#39;app-root&#39;,
+    template:`
+          &lt;ngx-remote-desktop [manager]=&quot;manager&quot;&gt;
+
+            &lt;!-- Toolbar items --&gt;
+            &lt;ngx-remote-desktop-toolbar-item align=&quot;left&quot; *ngIf=&quot;manager.isConnected()&quot; (click)=&quot;handleScreenshot()&quot;&gt;
+                &lt;i class=&quot;fa fa-print&quot;&gt;&lt;/i&gt; Take screenshot
+            &lt;/ngx-remote-desktop-toolbar-item&gt;
+            &lt;ngx-remote-desktop-toolbar-item (click)=&quot;handleHelp()&quot; align=&quot;right&quot;&gt;Help&lt;/ngx-remote-desktop-toolbar-item&gt;
+            &lt;ngx-remote-desktop-toolbar-item (click)=&quot;handleEnterFullScreen()&quot; *ngIf=&quot;!manager.isFullScreen() &amp;&amp; manager.isConnected()&quot; align=&quot;right&quot;&gt;
+                &lt;i class=&quot;fa fa-arrows-alt&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Enter full screen
+            &lt;/ngx-remote-desktop-toolbar-item&gt;
+            &lt;ngx-remote-desktop-toolbar-item (click)=&quot;handleExitFullScreen()&quot; *ngIf=&quot;manager.isFullScreen() &amp;&amp; manager.isConnected()&quot; align=&quot;right&quot;&gt;
+                Exit full screen
+            &lt;/ngx-remote-desktop-toolbar-item&gt;
+            &lt;!-- End toolbar items --&gt;
+
+            &lt;!-- Override connection state messages --&gt;
+            &lt;ngx-remote-desktop-connecting-message&gt;
+                &lt;div class=&quot;ngx-remote-desktop-message-title ngx-remote-desktop-message-title-success&quot;&gt;
+                    CONNECTING TO REMOTE DESKTOP
+                &lt;/div&gt;
+                &lt;div class=&quot;ngx-remote-desktop-message-body&quot;&gt;
+                    Attempting to connect to the remote desktop. Waiting for response...
+                &lt;/div&gt;
+            &lt;/ngx-remote-desktop-connecting-message&gt;
+
+            &lt;!-- Status bar --&gt;
+            &lt;ngx-remote-desktop-status-bar *ngIf=&quot;manager.isConnected()&quot;&gt;
+                &lt;ngx-remote-desktop-status-bar-item&gt;Hello world!&lt;/ngx-remote-desktop-status-bar-item&gt;
+            &lt;/ngx-remote-desktop-status-bar&gt;
+        &lt;/ngx-remote-desktop&gt;
+    `
+})
+export class AppComponent implements OnInit {
+
+    private manager: RemoteDesktopManager;
+
+    handleHelp() {
+        console.log(&#39;Hello help&#39;);
+    }
+
+    handleScreenshot() {
+        this.client.createScreenshot(blob =&gt; {
+        if (blob) {
+            // do something with blob....
+            }
+        });
+    }
+
+    handleEnterFullScreen() {
+        this.manager.setFullScreen(true);
+    }
+
+    handleExitFullScreen() {
+        this.manager.setFullScreen(false);
+    }
+
+    ngOnInit() {
+        // Setup tunnel. The tunnel can be either: WebsocketTunnel, HTTPTunnel or ChainedTunnel
+        const tunnel = new WebSocketTunnel(&#39;ws://localhost:8080&#39;);
+        /**
+         *  Create an instance of the remote desktop manager by 
+         *  passing in the tunnel and parameters
+         */
+        this.manager = new RemoteDesktopManager(tunnel);
+
+              // URL parameters (image, audio and other query parameters you want to send to the tunnel.)
+        const parameters = {
+            ip: &#39;192.168.13.232&#39;,
+            image: &#39;image/png&#39;,
+            width: window.screen.width,
+            height: window.screen.height,
+        };
+        /*
+         * The manager will establish a connection to: 
+         * ws://localhost:8080?width=n&amp;height=n&amp;ip=192.168.13.232&amp;image=image/png
+         */
+        this.manager.connect(parameters);
+    }
+
+}</code></pre></div><h1 id="other-features">Other features</h1>
+<p>All of these features below are used in the demo application.</p>
+<p>The <code>RemoteDesktopManager</code> exposes some useful methods.</p>
+<h4 id="focusing-and-unfocusing-the-display">Focusing and unfocusing the display</h4>
+<p>Sometimes you need to unfocus the display so you can use keyboard events inside another component (i.e. text input inside a modal)</p>
+<div><pre class="line-numbers"><code class="language-typescript">  this.manager.setFocused(true|false);</code></pre></div><h4 id="set-full-screen-mode">Set full screen mode</h4>
+<p>Changing this value will bring the display in and out of full screen mode</p>
+<div><pre class="line-numbers"><code class="language-typescript">  this.manager.setFullScreen(true|false);</code></pre></div><h4 id="screenshot">Screenshot</h4>
+<p>Take a screenshot of the connected remote desktop.</p>
+<div><pre class="line-numbers"><code class="language-typescript">  this.manager.createScreenshot(blob =&gt; {
+      if (blob) {
+          // do something with blob....
+      }
+  });</code></pre></div><h4 id="thumbnail">Thumbnail</h4>
+<p>Get a thumbnail of the connected remote desktop</p>
+<div><pre class="line-numbers"><code class="language-typescript">  const data = this.manager.createThumbnail(340, 240) {
+  // do something with the data image url...</code></pre></div><h4 id="receive-data-from-the-remote-clipboard">Receive data from the remote clipboard</h4>
+<p>Subscribe to the remote clipboard and receive data when text is cut or copied</p>
+<div><pre class="line-numbers"><code class="language-typescript">  this.manager.onRemoteClipboardData.subscribe(data =&gt; console.log(&#39;Got clipboard data&#39;, data));</code></pre></div><h4 id="send-data-to-the-remote-clipboard">Send data to the remote clipboard</h4>
+<div><pre class="line-numbers"><code class="language-typescript">  this.manager.sendRemoteClipboardData(&#39;Hello clipboard!&#39;);</code></pre></div><h4 id="get-the-current-guacamole-connection-state">Get the current guacamole connection state</h4>
+<div><pre class="line-numbers"><code class="language-typescript">  const state = this.manager.getState();
+  if(state === RemoteDesktopManager.STATE.DISCONNECTED) {
+    console.log(&#39;Oh no!&#39;);
+  }</code></pre></div><h4 id="getting-access-to-the-guacamole-client-and-tunnel">Getting access to the guacamole client and tunnel</h4>
+<div><pre class="line-numbers"><code class="language-typescript">  const client = this.manager.getClient();
+  const tunnel = this.manager.getTunnel();</code></pre></div><h3 id="get-notified-when-a-tunnel-instruction-is-recevied">Get notified when a tunnel instruction is recevied</h3>
+<p>This can be useful for generating stats, .i.e. display the total data received from the tunnel</p>
+<div><pre class="line-numbers"><code class="language-typescript">this.manager.onTunnelInstruction.subscribe(instruction =&gt; {
+    if (instruction &amp;&amp; instruction.opcode === &#39;blob&#39;) {
+        const data = atob(instruction.parameters[1]);
+        this.totalTunnelDataReceived += data.length;
+    }
+});</code></pre></div>
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
+            var COMPODOC_CURRENT_PAGE_URL = 'usage.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
