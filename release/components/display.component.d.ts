@@ -50,12 +50,12 @@ export declare class DisplayComponent implements OnInit, OnDestroy, AfterViewChe
      * Release all the keyboards when the window loses focus
      * @param event
      */
-    private onWindowBlur;
+    onWindowBlur(event: any): void;
     /**
      * Resize the display scale when the window is resized
      * @param event
      */
-    private onWindowResize;
+    onWindowResize(event: any): void;
     /**
      * Create the remote desktop display and bind the event handlers
      */
