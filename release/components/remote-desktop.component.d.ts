@@ -1,6 +1,9 @@
 import { OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { RemoteDesktopManager } from '../services';
+import { ConnectingMessageComponent } from './messages/connecting-message.component';
+import { DisconnectedMessageComponent } from './messages/disconnected-message.component';
+import { ErrorMessageComponent } from './messages/error-message.component';
 /**
  * The main component for displaying a remote desktop
  */
@@ -23,9 +26,9 @@ export declare class RemoteDesktopComponent implements OnInit, OnDestroy {
      * Manage the component state
      */
     state: BehaviorSubject<string>;
-    private connectingMessage;
-    private disconnectedMessage;
-    private errorMessage;
+    connectingMessage: ConnectingMessageComponent;
+    disconnectedMessage: DisconnectedMessageComponent;
+    errorMessage: ErrorMessageComponent;
     private container;
     private toolbar;
     /**
@@ -35,7 +38,7 @@ export declare class RemoteDesktopComponent implements OnInit, OnDestroy {
     /**
      * Hide or show the toolbar
      */
-    private toolbarVisible;
+    toolbarVisible: boolean;
     /**
      * Subscribe to the connection state  and full screen state when the component is initialised
      */
@@ -47,38 +50,38 @@ export declare class RemoteDesktopComponent implements OnInit, OnDestroy {
     /**
      * Bind the subscriptions
      */
-    private bindSubscriptions();
+    private bindSubscriptions;
     /**
      * Unbind the subscriptions
      */
-    private unbindSubscriptions();
+    private unbindSubscriptions;
     /**
      * Set the component state to the new guacamole state
      * @param newState
      */
-    private setState(newState);
+    private setState;
     /**
      * Receive the state from the desktop client and update this components state
      * @param newState - state received from the guacamole client
      */
-    private handleState(newState);
+    private handleState;
     /**
      * Exit full screen and show the toolbar
      */
-    private exitFullScreen();
+    private exitFullScreen;
     /**
      * Enter full screen mode and auto hide the toolbar
      */
-    private enterFullScreen();
+    private enterFullScreen;
     /**
      * Go in and out of full screen
      */
-    private handleFullScreen(newFullScreen);
-    private handleToolbar();
+    private handleFullScreen;
+    private handleToolbar;
     /**
      * Handle the display mouse movement
      * @param event Mouse event
      */
-    private handleDisplayMouseMove($event);
-    private onDocumentMousemove($event);
+    handleDisplayMouseMove($event: any): void;
+    onDocumentMousemove($event: MouseEvent): void;
 }

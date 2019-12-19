@@ -1,16 +1,43 @@
-import { Client, Tunnel } from '@illgrenoble/guacamole-common-js';
+import { Client, Tunnel } from '@langazov/guacamole-common-js';
 import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 /**
  * Manages the connection to the remote desktop
  */
 export declare class RemoteDesktopManager {
     static STATE: {
+        /**
+         * The machine connection has not yet been attempted.
+         */
         IDLE: string;
+        /**
+         * The machine connection is being established.
+         */
         CONNECTING: string;
+        /**
+         * The machine connection has been successfully established, and the
+         * client is now waiting for receipt of initial graphical data.
+         */
         WAITING: string;
+        /**
+         * The Guacamole connection has been successfully established, and
+         * initial graphical data has been received.
+         */
         CONNECTED: string;
+        /**
+         * The machine connection has terminated successfully. No errors are
+         * indicated.
+         */
         DISCONNECTED: string;
+        /**
+         * The machine connection has terminated due to an error reported by
+         * the client. The associated error code is stored in statusCode.
+         *
+         */
         CLIENT_ERROR: string;
+        /**
+         * The machine connection has terminated due to an error reported by
+         * the tunnel. The associated error code is stored in statusCode.
+         */
         TUNNEL_ERROR: string;
     };
     /**
@@ -118,39 +145,39 @@ export declare class RemoteDesktopManager {
      * Set the connection state and emit the new state to any subscribers
      * @param state Connection state
      */
-    private setState(state);
+    private setState;
     /**
      * Receive clipboard data from the remote desktop and emit an event to the client
      * @param stream
      * @param mimetype
      */
-    private handleClipboard(stream, mimetype);
+    private handleClipboard;
     /**
      * Build the URL query parameters to send to the tunnel connection
      */
-    private buildParameters(parameters?);
+    private buildParameters;
     /**
      * Bind the client and tunnel event handlers
      */
-    private bindEventHandlers();
+    private bindEventHandlers;
     /**
      * Handle any client errors by disconnecting and updating the connection state
      * @param state State received from the client
      */
-    private handleClientError(status);
+    private handleClientError;
     /**
      * Update the connection state when the client state changes
      * @param state State received from the client
      */
-    private handleClientStateChange(state);
+    private handleClientStateChange;
     /**
      * Handle any tunnel errors by disconnecting and updating the connection state
      * @param status Status received from the tunnel
      */
-    private handleTunnelError(status);
+    private handleTunnelError;
     /**
      * Update the connection state when the tunnel state changes
      * @param state State received from the tunnel
      */
-    private handleTunnelStateChange(state);
+    private handleTunnelStateChange;
 }

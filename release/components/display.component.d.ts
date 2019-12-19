@@ -37,82 +37,82 @@ export declare class DisplayComponent implements OnInit, OnDestroy, AfterViewChe
     /**
      * Bind all subscriptions
      */
-    private bindSubscriptions();
+    private bindSubscriptions;
     /**
      * Unbind all subscriptions
      */
-    private unbindSubscriptions();
+    private unbindSubscriptions;
     /**
      * Bind input listeners if display is focused, otherwise, unbind
      */
-    private handleFocused(newFocused);
+    private handleFocused;
     /**
      * Release all the keyboards when the window loses focus
      * @param event
      */
-    private onWindowBlur(event);
+    private onWindowBlur;
     /**
      * Resize the display scale when the window is resized
      * @param event
      */
-    private onWindowResize(event);
+    private onWindowResize;
     /**
      * Create the remote desktop display and bind the event handlers
      */
-    private createDisplayCanvas();
+    private createDisplayCanvas;
     /**
      * Get the remote desktop display and set the scale
      */
-    private setDisplayScale();
+    private setDisplayScale;
     /**
      * Get the remote desktop display
      */
-    private getDisplay();
+    private getDisplay;
     /**
      * Get the remote desktop client
      */
-    private getClient();
+    private getClient;
     /**
      * Calculate the scale for the display
      */
-    private calculateDisplayScale(display);
+    private calculateDisplayScale;
     /**
      * Assign the display to the client
      */
-    private createDisplay();
+    private createDisplay;
     /**
      * Remove the display
      */
-    private removeDisplay();
+    private removeDisplay;
     /**
      * Bind input listeners for keyboard and mouse
      */
-    private bindDisplayInputListeners();
+    private bindDisplayInputListeners;
     /**
      * Remove all input listeners
      */
-    private removeDisplayInputListeners();
+    private removeDisplayInputListeners;
     /**
      * Create the keyboard and mouse inputs
      */
-    private createDisplayInputs();
+    private createDisplayInputs;
     /**
      * Send mouse events to the remote desktop
      * @param mouseState
      */
-    private handleMouseState(mouseState);
+    private handleMouseState;
     /**
      * Resetting the keyboard will release all keys
      */
-    private resetKeyboard();
+    private resetKeyboard;
     /**
      * Send key down event to the remote desktop
      * @param key
      */
-    private handleKeyDown(key);
+    private handleKeyDown;
     /**
      * Send key up event to the remote desktop
      * @param key
      */
-    private handleKeyUp(key);
+    private handleKeyUp;
 }

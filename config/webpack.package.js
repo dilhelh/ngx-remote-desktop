@@ -62,7 +62,7 @@ module.exports = function (env) {
       'rxjs/operators': 'rxjs/operators',
       'zone.js/dist/zone': 'zone.js/dist/zone',
       'screenfull': 'screenfull',
-      '@illgrenoble/guacamole-common-js': '@illgrenoble/guacamole-common-js'
+      '@langazov/guacamole-common-js': '@langazov/guacamole-common-js'
 
     },
     plugins: [

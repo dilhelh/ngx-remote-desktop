@@ -142,13 +142,13 @@ export class RemoteDesktopComponent implements OnInit, OnDestroy {
     public state: BehaviorSubject<string> = new BehaviorSubject<string>(this.states.CONNECTING);
 
     @ContentChild(ConnectingMessageComponent)
-    private connectingMessage: ConnectingMessageComponent;
+    public connectingMessage: ConnectingMessageComponent;
 
     @ContentChild(DisconnectedMessageComponent)
-    private disconnectedMessage: DisconnectedMessageComponent;
+    public disconnectedMessage: DisconnectedMessageComponent;
 
     @ContentChild(ErrorMessageComponent)
-    private errorMessage: ErrorMessageComponent;
+    public errorMessage: ErrorMessageComponent;
 
     @ViewChild('container')
     private container: ElementRef;
@@ -164,7 +164,7 @@ export class RemoteDesktopComponent implements OnInit, OnDestroy {
     /**
      * Hide or show the toolbar
      */
-    private toolbarVisible: boolean = true;
+    public toolbarVisible: boolean = true;
 
     /**
      * Subscribe to the connection state  and full screen state when the component is initialised
@@ -276,7 +276,7 @@ export class RemoteDesktopComponent implements OnInit, OnDestroy {
      * Handle the display mouse movement
      * @param event Mouse event
      */
-    private handleDisplayMouseMove($event: any): void {
+    public handleDisplayMouseMove($event: any): void {
         if (!this.manager.isFullScreen()) {
             return;
         }
@@ -287,7 +287,7 @@ export class RemoteDesktopComponent implements OnInit, OnDestroy {
     }
 
     @HostListener('document:mousemove', ['$event'])
-    private onDocumentMousemove($event: MouseEvent) {
+    public onDocumentMousemove($event: MouseEvent) {
         if (!this.manager.isFullScreen()) {
             return;
         }

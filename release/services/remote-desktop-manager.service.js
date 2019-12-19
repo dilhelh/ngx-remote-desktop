@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var http_1 = require("@angular/http");
-var guacamole_common_js_1 = require("@illgrenoble/guacamole-common-js");
+var guacamole_common_js_1 = require("@langazov/guacamole-common-js");
 var rxjs_1 = require("rxjs");
 /**
  * Manages the connection to the remote desktop
@@ -232,7 +232,7 @@ var RemoteDesktopManager = /** @class */ (function () {
                 this.setState(RemoteDesktopManager.STATE.IDLE);
                 break;
             // Ignore "connecting" state
-            case 1:// Connecting
+            case 1: // Connecting
                 break;
             // Connected + waiting
             case 2:
@@ -244,7 +244,7 @@ var RemoteDesktopManager = /** @class */ (function () {
                 break;
             // Update history when disconnecting
             case 4: // Disconnecting
-            case 5:// Disconnected
+            case 5: // Disconnected
                 break;
         }
     };

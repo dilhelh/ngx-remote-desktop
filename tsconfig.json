@@ -32,6 +32,10 @@
   "compileOnSave": false,
   "buildOnSave": false,
   "awesomeTypescriptLoaderOptions": {
-    "forkChecker": false
+    "forkChecker": false,
+    "useWebpackText": true,
+    "useTranspileModule": true,
+    "doTypeCheck": true,
+
   }
 }

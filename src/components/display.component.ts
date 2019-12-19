@@ -11,7 +11,7 @@ import {
     ViewChild,
     AfterViewChecked,
 } from '@angular/core';
-import { Client, Display, Keyboard, Mouse } from '@illgrenoble/guacamole-common-js';
+import { Client, Display, Keyboard, Mouse } from '@langazov/guacamole-common-js';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 
@@ -113,7 +113,7 @@ export class DisplayComponent implements OnInit, OnDestroy, AfterViewChecked {
      * @param event
      */
     @HostListener('window:blur', ['$event'])
-    private onWindowBlur(event: any): void {
+    public onWindowBlur(event: any): void {
         this.resetKeyboard();
     }
 
@@ -122,7 +122,7 @@ export class DisplayComponent implements OnInit, OnDestroy, AfterViewChecked {
      * @param event
      */
     @HostListener('window:resize', ['$event'])
-    private onWindowResize(event: any): void {
+    public onWindowResize(event: any): void {
         this.setDisplayScale();
     }
 
