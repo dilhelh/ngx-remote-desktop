@@ -1,9 +1,9 @@
 # Installation
 
-To use `ngx-remote-desktop` in your project install it via npm:
+To use `@dilhelh/ngx-remote-desktop` in your project install it via npm:
 
 ```
-npm i @langazov/ngx-remote-desktop --save
+npm i @dilhelh/ngx-remote-desktop --save
 ```
 
 We also require two peer dependencies:
@@ -18,7 +18,7 @@ After installing, include `NgxRemoteDesktopModule` in your application module li
 ```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxRemoteDesktopModule } from '@langazov/ngx-remote-desktop';
+import { NgxRemoteDesktopModule } from '@dilhelh/ngx-remote-desktop';
 import { AppComponent } from './app.component';
 
 @NgModule({

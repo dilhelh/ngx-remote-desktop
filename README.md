@@ -1,5 +1,5 @@
 # ngx-remote-desktop
-[![npm version](https://badge.fury.io/js/%40illgrenoble%2Fngx-remote-desktop.svg)](https://badge.fury.io/js/%40illgrenoble%2Fngx-remote-desktop)
+[![npm version](https://badge.fury.io/js/@dilhelh%2Fngx-remote-desktop.svg)](https://badge.fury.io/js/@dilhelh%2Fngx-remote-desktop)
 
 For installation and usage details go [here](https://illgrenoble.github.io/ngx-remote-desktop/additional-documentation/installation.html)
 
@@ -11,7 +11,7 @@ There is no dependency on any presentation component library / framework (ng-boo
 
 By default, there are no toolbar items, however, you can add as many toolbar items as you wish and create a handler in your component. You can also override the scss if you wish to change the styling. The `RemoteDesktopManager` exposes some useful methods for generating a screenshot or thumbnail, entering and exiting full screen mode, focusing and unfocusing the display, getting the client state, subscribing to the remote desktop clipboard and sending data to the remote desktop clipboard.
 
-![Screenshot](https://raw.githubusercontent.com/ILLGrenoble/ngx-remote-desktop/master/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/dilhelh/ngx-remote-desktop/master/screenshot.png)
 
 ## Features
   - Fluid screen resizing and scaling
@@ -23,14 +23,14 @@ By default, there are no toolbar items, however, you can add as many toolbar ite
   - Send data to the remote clipboard
   - Status bar (optional) to provide contextual information
 
-For a full implementation example, see the [demo source code](https://github.com/ILLGrenoble/ngx-remote-desktop/tree/master/demo)
+For a full implementation example, see the [demo source code](https://github.com/dilhelh/ngx-remote-desktop/tree/master/demo)
 
 ## Installation
 
 To use `ngx-remote-desktop` in your project, install it via npm:
 
 ```
-npm i @langazov/ngx-remote-desktop --save
+npm i @dilhelh/ngx-remote-desktop --save
 ```
 
 We also require two peer dependencies:

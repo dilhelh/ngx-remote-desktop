@@ -14,7 +14,7 @@ const {
 
 const banner =
   `/**
- * ngx-remote-desktop v${APP_VERSION} (https://github.com/ILLGrenoble/ngx-remote-desktop)
+ * ngx-remote-desktop v${APP_VERSION} (https://github.com/dilhelh/ngx-remote-desktop)
  * Copyright 2018
  * Licensed under MIT
  */`;

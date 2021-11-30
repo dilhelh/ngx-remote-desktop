@@ -8,7 +8,7 @@ In your `app.component.ts`, you define a new remote desktop client like this:
 ```typescript
 import { Component, OnInit } from '@angular/core';
 
-import { RemoteDesktopManager } from '@langazov/ngx-remote-desktop';
+import { RemoteDesktopManager } from '@dilhelh/ngx-remote-desktop';
 import { WebSocketTunnel } from '@langazov/guacamole-common-js';
 
 @Component({
